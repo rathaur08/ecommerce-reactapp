@@ -7,11 +7,13 @@ import Products from './components/Products';
 import Cart from './components/Cart';
 import SingleProduct from './components/SingleProduct';
 import ErrorPage from './components/ErrorPage'
+import Header from './components/Header';
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
+      <Header/>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about-us' element={<About />} />
@@ -27,3 +29,8 @@ const App = () => {
 }
 
 export default App
+
+// Source Links
+// https://github.com/thapatechnical/thapareactecom
+
+// Video -8
