@@ -29,8 +29,3 @@ const App = () => {
 }
 
 export default App
-
-// Source Links
-// https://github.com/thapatechnical/thapareactecom
-
-// Video -8

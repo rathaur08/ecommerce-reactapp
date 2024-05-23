@@ -15,12 +15,22 @@ const Header = () => {
                 <a className="nav-link active" aria-current="page" href="/">Home</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="contact-us">Contact-Us</a>
+                <a className="nav-link" href="/about-us">ABOUT</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="about-us">About-Us</a>
+                <a className="nav-link" href="/products">PRODUCTS</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/contact-us">CONTACT</a>
               </li>
             </ul>
+            <button type="button" className="btn btn-primary position-relative">
+              Cart
+              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                10
+                <span className="visually-hidden">unread messages</span>
+              </span>
+            </button>
           </div>
         </div>
       </nav>
