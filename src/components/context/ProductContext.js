@@ -2,19 +2,34 @@
 // provider
 // consumer => useContext Hook
 
-import { createContext, useContext, useEffect } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import axios from "axios";
+import reducer from "../reducer/ProductReducer";
 
 const AppContext = createContext();
 
 const API = "https://api.restful-api.dev/objects"
 
+const initialState = {
+  isLoading: false,
+  isError: false,
+  products: [],
+  featureProducts: [],
+};
+
 const AppProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const getProducts = async (url) => {
-    const res = await axios.get(url);
-    const products = await res.data;
-    console.log(`products List`, products)
+    dispatch({ type: "SET_LOADING" })
+    try {
+      const res = await axios.get(url);
+      const products = await res.data;
+      dispatch({ type: "SET_API_DATA", payload: products })
+      console.log(`products List`, products)
+    } catch (error) {
+      dispatch({ type: "API_ERROR" })
+    }
   }
 
   useEffect(() => {
@@ -22,7 +37,7 @@ const AppProvider = ({ children }) => {
   }, []);
 
 
-  return <AppContext.Provider value={{ myName: "Sunny Rathaur" }}>
+  return <AppContext.Provider value={{ ...state }}>
     {children}
   </AppContext.Provider>
 };
