@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import FormatPrice from './Helper/FormatPrice'
 
 const Product = (curElem) => {
   const { id, name } = curElem
@@ -9,7 +10,7 @@ const Product = (curElem) => {
         <img src="https://d3tfanr7troppj.cloudfront.net/static_files/images/000/005/523/original/VT-MUM.png?1705149628" className="card-img-top" alt={name} />
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
-          {/* <p className="card-text">Some quick example text t</p> */}
+          <p className="card-text ">{<FormatPrice price='999999' />}</p>
           {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
         </div>
       </div>
