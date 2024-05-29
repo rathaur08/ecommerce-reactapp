@@ -1,8 +1,13 @@
 import React from 'react'
+import FeatureProduct from './FeatureProduct'
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <>
+     <div>Home</div>
+     <FeatureProduct/>
+    </>
+
   )
 }
 

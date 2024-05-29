@@ -12,18 +12,22 @@ import Header from './components/Header';
 const App = () => {
   return (
     <>
-      <BrowserRouter>
-      <Header/>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/about-us' element={<About />} />
-          <Route path='/contact-us' element={<Contact />} />
-          <Route path='/products' element={<Products/>} />
-          <Route path='/cart' element={<Cart/>} />
-          <Route path='/singleproduct/:id' element={<SingleProduct />} />
-          <Route path='*' element={<ErrorPage/>} />
-        </Routes>
-      </BrowserRouter>
+      <div className='container'>
+
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/about-us' element={<About />} />
+            <Route path='/contact-us' element={<Contact />} />
+            <Route path='/products' element={<Products />} />
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/singleproduct/:id' element={<SingleProduct />} />
+            <Route path='*' element={<ErrorPage />} />
+          </Routes>
+        </BrowserRouter>
+
+      </div>
     </>
   )
 }
