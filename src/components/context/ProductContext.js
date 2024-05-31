@@ -15,6 +15,8 @@ const initialState = {
   isError: false,
   products: [],
   featureProducts: [],
+  isSingleLoading: false,
+  singleProduct: {},
 };
 
 const AppProvider = ({ children }) => {
@@ -26,9 +28,23 @@ const AppProvider = ({ children }) => {
       const res = await axios.get(url);
       const products = await res.data;
       dispatch({ type: "SET_API_DATA", payload: products })
-      console.log(`products List`, products)
+      // console.log(`products List`, products)
     } catch (error) {
       dispatch({ type: "API_ERROR" })
+    }
+  }
+
+  // my 2nd api call for single product
+
+  const getSingleProduct = async (url) => {
+    dispatch({ type: "SET_SINGLE_LOADING" })
+    try {
+      const res = await axios.get(url);
+      const singleProduct = await res.data;
+      dispatch({ type: "SET_SINGLE_PRODUCT", payload: singleProduct })
+      // console.log(`single Product List`, singleProduct)
+    } catch (error) {
+      dispatch({ type: "SET_SINGLE_ERROR" })
     }
   }
 
@@ -37,7 +53,7 @@ const AppProvider = ({ children }) => {
   }, []);
 
 
-  return <AppContext.Provider value={{ ...state }}>
+  return <AppContext.Provider value={{ ...state, getSingleProduct }}>
     {children}
   </AppContext.Provider>
 };
