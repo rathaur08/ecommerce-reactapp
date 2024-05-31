@@ -5,7 +5,7 @@ import { useProductContext } from './context/ProductContext';
 
 const SingleProduct = () => {
 
-  const [mainImage, setMainImage] = useState(image[0]);
+  // const [mainImage, setMainImage] = useState(image[0]);
 
   const API = "https://api.pujakaitem.com/api/products";
 
@@ -35,7 +35,7 @@ const SingleProduct = () => {
                 <div className="preview-pic tab-content">
                   <div className="tab-pane active" id="pic-1">
                     {/* <img src="https://d3tfanr7troppj.cloudfront.net/static_files/images/000/005/523/original/VT-MUM.png?1705149628" /> */}
-                    <img src={mainImage.url} alt={mainImage.filename} />
+                    {/* <img src={mainImage.url} alt={mainImage.filename} /> */}
                   </div>
                   {/* <div className="tab-pane" id="pic-2"><img src="https://d3tfanr7troppj.cloudfront.net/static_files/images/000/005/872/original/Jetsetyatra.webp?1712837969" /></div>
                   <div className="tab-pane" id="pic-3"><img src="https://d3tfanr7troppj.cloudfront.net/static_files/images/000/005/743/original/Membership_Program_Mobile_banner.webp?1707306103" /></div>
