@@ -16,7 +16,7 @@ const FeatureProduct = () => {
         <h1>Our Feature Product</h1>
         <div className='d-flex justify-content-between gap-3'>
           {
-            products.slice(0, 3).map((curElem) => {
+            featureProducts.slice(0, 3).map((curElem) => {
               return <Product key={curElem.id} {...curElem} />
             })
           }

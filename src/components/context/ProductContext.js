@@ -8,7 +8,7 @@ import reducer from "../reducer/ProductReducer";
 
 const AppContext = createContext();
 
-const API = "https://api.restful-api.dev/objects"
+const API = "https://api.pujakaitem.com/api/products"
 
 const initialState = {
   isLoading: false,
@@ -28,7 +28,7 @@ const AppProvider = ({ children }) => {
       const res = await axios.get(url);
       const products = await res.data;
       dispatch({ type: "SET_API_DATA", payload: products })
-      // console.log(`products List`, products)
+      console.log(`products List`, products)
     } catch (error) {
       dispatch({ type: "API_ERROR" })
     }
