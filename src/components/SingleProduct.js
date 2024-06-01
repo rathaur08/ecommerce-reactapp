@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './AllStyle.css'
 import { useParams } from 'react-router-dom';
 import { useProductContext } from './context/ProductContext';
+import Star from './Star';
 
 const SingleProduct = () => {
 
@@ -15,7 +16,7 @@ const SingleProduct = () => {
   const { id } = useParams();
 
   // Note :- Change Name {id = alias} NAME
-  const { id: alias, name, image } = singleProduct;
+  const { id: alias, name, image, stars } = singleProduct;
 
   useEffect(() => {
     getSingleProduct(`${API}/${id}`)
@@ -34,42 +35,29 @@ const SingleProduct = () => {
               <div className="preview col-md-6">
                 <div className="preview-pic tab-content">
                   <div className="tab-pane active" id="pic-1">
-                    {/* <img src="https://d3tfanr7troppj.cloudfront.net/static_files/images/000/005/523/original/VT-MUM.png?1705149628" /> */}
+                    <img src="https://d3tfanr7troppj.cloudfront.net/static_files/images/000/005/523/original/VT-MUM.png?1705149628" height={450} />
                     {/* <img src={mainImage.url} alt={mainImage.filename} /> */}
-                  </div>
-                  {/* <div className="tab-pane" id="pic-2"><img src="https://d3tfanr7troppj.cloudfront.net/static_files/images/000/005/872/original/Jetsetyatra.webp?1712837969" /></div>
-                  <div className="tab-pane" id="pic-3"><img src="https://d3tfanr7troppj.cloudfront.net/static_files/images/000/005/743/original/Membership_Program_Mobile_banner.webp?1707306103" /></div>
-                  <div className="tab-pane" id="pic-4"><img src="https://d3tfanr7troppj.cloudfront.net/static_files/images/000/005/871/original/Jetsetwed.webp?1712837960" /></div>
-                  <div className="tab-pane" id="pic-5"><img src="https://d3tfanr7troppj.cloudfront.net/static_files/images/000/005/523/original/VT-MUM.png?1705149628" /></div> */}
-                </div>
+                  </div></div>
                 <ul className="preview-thumbnail nav nav-tabs">
                   {
                     image && image.map((curElm) => {
                       <li className="" key={curElm.id}>
-                        <a data-target="#pic-1" data-toggle="tab">
+                        <a href='*' data-target="#pic-1" data-toggle="tab">
                           <img src={curElm.url}
                             alt={curElm.filename}
-                            onClick={() => setMainImage(curElm)}
+                            // onClick={() => setMainImage(curElm)}
                           />
                         </a>
                       </li>
                     })
                   }
-                  {/* <li><a data-target="#pic-2" data-toggle="tab"><img src="https://d3tfanr7troppj.cloudfront.net/static_files/images/000/005/872/original/Jetsetyatra.webp?1712837969" /></a></li>
-                  <li><a data-target="#pic-3" data-toggle="tab"><img src="https://d3tfanr7troppj.cloudfront.net/static_files/images/000/005/743/original/Membership_Program_Mobile_banner.webp?1707306103" /></a></li>
-                  <li><a data-target="#pic-4" data-toggle="tab"><img src="https://d3tfanr7troppj.cloudfront.net/static_files/images/000/005/871/original/Jetsetwed.webp?1712837960" /></a></li>
-                  <li><a data-target="#pic-5" data-toggle="tab"><img src="https://d3tfanr7troppj.cloudfront.net/static_files/images/000/005/523/original/VT-MUM.png?1705149628" /></a></li> */}
                 </ul>
               </div>
               <div className="details col-md-6">
                 <h3 className="product-title">{name}</h3>
                 <div className="rating">
                   <div className="stars">
-                    <span className="fa fa-star checked"></span>
-                    <span className="fa fa-star checked"></span>
-                    <span className="fa fa-star checked"></span>
-                    <span className="fa fa-star"></span>
-                    <span className="fa fa-star"></span>
+                    <Star stars={stars} />
                   </div>
                   <span className="review-no">41 reviews</span>
                 </div>
