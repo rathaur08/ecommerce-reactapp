@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './AllStyle.css'
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { useProductContext } from './context/ProductContext';
 import FormatPrice from './Helper/FormatPrice';
 import Star from './Star';
@@ -18,7 +18,7 @@ const SingleProduct = () => {
   const { id } = useParams();
 
   // Note :- Change Name {id = alias} NAME
-  const { id: alias, name, image, stars, stock ,price } = singleProduct;
+  const { id: alias, name, image, stars, stock, price } = singleProduct;
 
   useEffect(() => {
     getSingleProduct(`${API}/${id}`)
@@ -75,8 +75,11 @@ const SingleProduct = () => {
                 <h5 className="colors">
                   {stock > 0 && <AddTOCart product={singleProduct} />}
                 </h5>
+                
                 <div className="action">
+                  <NavLink to='/cart'>
                   <button className="add-to-cart btn btn-default" type="button">add to cart</button>
+                  </NavLink>
                   <button className="like btn btn-default ms-1" type="button"> ♡ </button>
                 </div>
               </div>
