@@ -150,6 +150,12 @@ img {
   border-radius: 2px;
 }
 
+.btnStyle{
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}
+
 .color:first-of-type {
   margin-left: 20px;
 }
@@ -230,9 +236,3 @@ img {
 /*# sourceMappingURL=style.css.map */
 
 /* SingleProduct CSS END */
-
-.btnStyle{
-  border-radius: 50%;
-  height: 30px;
-  width: 30px;
-}

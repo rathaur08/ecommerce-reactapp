@@ -43,14 +43,16 @@ const SingleProduct = () => {
                 <ul className="preview-thumbnail nav nav-tabs">
                   {
                     image && image.map((curElm) => {
-                      <li className="" key={curElm.id}>
-                        <a href='*' data-target="#pic-1" data-toggle="tab">
-                          <img src={curElm.url}
-                            alt={curElm.filename}
-                          // onClick={() => setMainImage(curElm)}
-                          />
-                        </a>
-                      </li>
+                      return (
+                        <li className="" key={curElm.id}>
+                          <a href='*' data-target="#pic-1" data-toggle="tab">
+                            <img src={curElm.url}
+                              alt={curElm.filename}
+                            // onClick={() => setMainImage(curElm)}
+                            />
+                          </a>
+                        </li>
+                      )
                     })
                   }
                 </ul>
@@ -75,10 +77,10 @@ const SingleProduct = () => {
                 <h5 className="colors">
                   {stock > 0 && <AddTOCart product={singleProduct} />}
                 </h5>
-                
+
                 <div className="action">
                   <NavLink to='/cart'>
-                  <button className="add-to-cart btn btn-default" type="button">add to cart</button>
+                    <button className="add-to-cart btn btn-default" type="button">add to cart</button>
                   </NavLink>
                   <button className="like btn btn-default ms-1" type="button"> ♡ </button>
                 </div>

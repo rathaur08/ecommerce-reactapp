@@ -4,7 +4,7 @@ import CartAmountToggle from './CartAmountToggle';
 
 const AddTOCart = ({ product }) => {
 
-  const { id, colors, stock } = product;
+  const { colors, stock } = product;
 
   const [color, setColor] = useState(colors[2])
 
@@ -16,7 +16,6 @@ const AddTOCart = ({ product }) => {
   const setIncrease = () => {
     amount < stock ? setAmount(amount + 1) : setAmount(stock);
   }
-
 
   return (
     <>
