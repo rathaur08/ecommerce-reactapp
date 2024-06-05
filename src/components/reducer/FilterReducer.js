@@ -9,6 +9,12 @@ const filterReducer = (state, action) => {
         all_products: [...action.payload],
       };
 
+    case "SET_GRIDIEW":
+      return {
+        ...state,
+        grid_view: true,
+      }
+
     default:
       return state;
   }
