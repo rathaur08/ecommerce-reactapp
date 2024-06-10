@@ -77,7 +77,6 @@ const SingleProduct = () => {
                 <h5 className="colors">
                   {stock > 0 && <AddTOCart product={singleProduct} />}
                 </h5>
-
                 <div className="action">
                   <NavLink to='/cart'>
                     <button className="add-to-cart btn btn-default" type="button">add to cart</button>
