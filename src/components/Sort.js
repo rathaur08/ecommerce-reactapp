@@ -2,7 +2,7 @@ import React from 'react'
 import { useFilterContext } from './context/FilterContext'
 
 const Sort = () => {
-  const { filter_products, grid_view, setGridView, setListView } = useFilterContext();
+  const { filter_products, grid_view, setGridView, setListView, sorting } = useFilterContext();
   return (
     <>
       <div className='row'>
@@ -15,11 +15,12 @@ const Sort = () => {
           {`${filter_products.length}`} Total Products
         </div>
         <div className='col'>
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Filter Product</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+          <select class="form-select" id='sort' onClick={sorting} aria-label="Default select example">
+            {/* <option disabled>Filter Product</option> */}
+            <option value="lowest">Price(Lowest)</option>
+            <option value="highest">Price(Highest)</option>
+            <option value="a-z">Price(a-z)</option>
+            <option value="z-a">Price(z-a)</option>
           </select>
         </div>
 
