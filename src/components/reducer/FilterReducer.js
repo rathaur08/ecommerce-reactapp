@@ -22,43 +22,41 @@ const filterReducer = (state, action) => {
       }
 
     case "GET_SORT_VALUE":
-      let userSortValue = document.getElementById("sort")
-      let sort_value = userSortValue.options[userSortValue.selectedIndex].value;
-      console.log(`sort_value`, sort_value)
+      // let userSortValue = document.getElementById("sort")
+      // let sort_value = userSortValue.options[userSortValue.selectedIndex].value;
+      // console.log(`sort_value`, sort_value)
       return {
         ...state,
-        sorting_value: sort_value,
+        sorting_value: action.payload,
       }
 
     case "SORTING_PRODUCTS":
       let newSortdata;
-      let tempSortProduct = [...action.payload];
+      // let tempSortProduct = [...action.payload];
+      const { filter_products, sorting_value } = state;
+      let tempSortProduct = [...filter_products];
 
-      if (state.sorting_value === "lowest") {
-        const sortingProducts = (a, b) => {
+      const sortingProducts = (a, b) => {
+
+        if (sorting_value === "lowest") {
           return a.price - b.price;
         }
-        newSortdata = tempSortProduct.sort(sortingProducts)
-      }
 
-      if (state.sorting_value === "highest") {
-        const sortingProducts = (a, b) => {
+        if (sorting_value === "highest") {
           return b.price - a.price;
         }
-        newSortdata = tempSortProduct.sort(sortingProducts)
-      }
 
-      if (state.sorting_value === "a-z") {
-        newSortdata = tempSortProduct.sort((a, b) =>
-          a.name.localeCompare(b.name)
-        )
-      }
+        if (sorting_value === "a-z") {
+          return a.name.localeCompare(b.name)
+        }
 
-      if (state.sorting_value === "z-a") {
-        newSortdata = tempSortProduct.sort((a, b) =>
-          b.name.localeCompare(a.name)
-        )
-      }
+        if (sorting_value === "z-a") {
+          return b.name.localeCompare(a.name)
+        }
+
+      };
+
+      newSortdata = tempSortProduct.sort(sortingProducts)
 
       return {
         ...state,
@@ -70,5 +68,4 @@ const filterReducer = (state, action) => {
   }
 
 };
-
 export default filterReducer;

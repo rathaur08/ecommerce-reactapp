@@ -28,13 +28,14 @@ export const FilterContextProvider = ({ children }) => {
   }
 
   // sorting function
-  const sorting = () => {
-    dispatch({ type: "GET_SORT_VALUE" });
+  const sorting = (e) => {
+    let userValue = e.target.value;
+    dispatch({ type: "GET_SORT_VALUE", payload: userValue });
   };
 
   useEffect(() => {
     // console.log("hii..")
-    dispatch({ type: "SORTING_PRODUCTS", payload: products })
+    dispatch({ type: "SORTING_PRODUCTS" })
   }, [state.sorting_value]);
 
   useEffect(() => {
