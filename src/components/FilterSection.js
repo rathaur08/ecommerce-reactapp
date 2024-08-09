@@ -42,7 +42,7 @@ const FilterSection = () => {
       </div>
       <div className='filter-company'>
         <h3 className='mt-3'>Company</h3>
-        <form onSubmit={(e) => e.preventDefault()}>
+        <form action="#">
           <select class="form-select" id="comany" onClick={updateFilterValue} aria-label="Default select example">
             {/* <option selected>Open this select option</option> */}
             {companyOnlyData.map((curElem, index) => {
