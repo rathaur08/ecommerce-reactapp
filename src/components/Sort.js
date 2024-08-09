@@ -15,7 +15,7 @@ const Sort = () => {
           {`${filter_products.length}`} Total Products
         </div>
         <div className='col'>
-          <select class="form-select" id='sort' onClick={sorting} aria-label="Default select example">
+          <select className="form-select" id='sort' onClick={sorting} aria-label="Default select example">
             {/* <option disabled>Filter Product</option> */}
             <option value="lowest">Price(Lowest)</option>
             <option value="highest">Price(Highest)</option>

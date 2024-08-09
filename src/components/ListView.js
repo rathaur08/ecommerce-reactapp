@@ -9,16 +9,16 @@ const ListView = ({ products }) => {
         products.map((curElem) => {
           const { id, name, image, price, description } = curElem;
           return (
-            <div class="card mb-3 p-2" key={id}>
-              <div class="row g-0">
-                <div class="col-md-4">
-                  <img src={image} class="img-fluid rounded-start" alt={name} />
+            <div className="card mb-3 p-2" key={id}>
+              <div className="row g-0">
+                <div className="col-md-4">
+                  <img src={image} className="img-fluid rounded-start" alt={name} />
                 </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">{name}</h5>
-                    <p class="card-text m-0"> <FormatPrice price={price} /></p>
-                    <p class="card-text">{description.slice(0, 99)}</p>
+                <div className="col-md-8">
+                  <div className="card-body">
+                    <h5 className="card-title">{name}</h5>
+                    <p className="card-text m-0"> <FormatPrice price={price} /></p>
+                    <p className="card-text">{description.slice(0, 99)}</p>
                     <NavLink to={`/singleproduct/${id}`} type="button" className="btn btn-primary">Read More</NavLink>
                   </div>
                 </div>
