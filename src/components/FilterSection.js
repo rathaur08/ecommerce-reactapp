@@ -3,14 +3,15 @@ import { useFilterContext } from './context/FilterContext';
 
 
 const FilterSection = () => {
-  const { all_products, filters: { text, category , company }, updateFilterValue } = useFilterContext();
+  const { all_products, filters: { text, category, company }, updateFilterValue } = useFilterContext();
 
   //  to get the UNIQUE data of each FiELDS
   const getUniqueData = (data, property) => {
     let newVal = data.map((curElem) => {
       return curElem[property]
-    })
-    return newVal = ["All", ...new Set(newVal)];
+    });
+
+    return (newVal = ["all", ...new Set(newVal)]);
     // console.log("getUniqueData.. " + newVal)
   };
 
@@ -31,9 +32,11 @@ const FilterSection = () => {
       <div className='filter-category'>
         <h3 className='mt-3'>Category</h3>
         <div className='btn-group-vertical'>
-          {categoryOnlyData && categoryOnlyData.map((curElem, index) => {
-            return <button key={index} className='btn btn-outline-primary' type='button'
-              name="category" value={curElem} onClick={updateFilterValue}>{curElem}</button>
+          {categoryOnlyData.map((curElem, index) => {
+            return (
+              <button key={index} className='btn btn-outline-primary' type='button'
+                name="category" value={curElem} onClick={updateFilterValue}>{curElem}</button>
+            );
           })}
         </div>
       </div>
@@ -42,10 +45,12 @@ const FilterSection = () => {
         <form onSubmit={(e) => e.preventDefault()}>
           <select class="form-select" id="comany" onClick={updateFilterValue} aria-label="Default select example">
             {/* <option selected>Open this select option</option> */}
-            {companyOnlyData && companyOnlyData.map((curElem, index) => {
-            return <option key={index} className='btn btn-outline-primary'
-              name="company" value={curElem} onClick={updateFilterValue}>{curElem}</option>
-          })}
+            {companyOnlyData.map((curElem, index) => {
+              return (
+                <option key={index} className='btn btn-outline-primary'
+                  name="company" value={curElem} onClick={updateFilterValue}>{curElem}</option>
+              )
+            })}
           </select>
         </form>
       </div>

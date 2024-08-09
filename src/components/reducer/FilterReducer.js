@@ -85,18 +85,16 @@ const filterReducer = (state, action) => {
         })
       }
 
-      if (category) {
-        tempFilterProduct = tempFilterProduct.filter((curElen) => {
-          return curElen.category === category;
-          // return curElen.name.toLowerCase().startsWith(text);
-        })
+      if (category !== "all") {
+        tempFilterProduct = tempFilterProduct.filter(
+          (curElem) => curElem.category === category
+        );
       }
 
-      if (company) {
-        tempFilterProduct = tempFilterProduct.filter((curElen) => {
-          return curElen.company.toLowerCase() === company.toLowerCase();
-          // return curElen.name.toLowerCase().startsWith(text);
-        })
+      if (company !== "all") {
+        tempFilterProduct = tempFilterProduct.filter(
+          (curElem) => curElem.company.toLowerCase() === company.toLowerCase()
+        );
       }
 
       return {
