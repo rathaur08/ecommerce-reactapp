@@ -82,7 +82,6 @@ const filterReducer = (state, action) => {
         tempFilterProduct = tempFilterProduct.filter((curElen) => {
           return curElen.name.toLowerCase().includes(text);
           // return curElen.name.toLowerCase().startsWith(text);
-
         })
       }
 
