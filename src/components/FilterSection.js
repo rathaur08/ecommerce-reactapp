@@ -12,10 +12,12 @@ const FilterSection = () => {
     });
 
     if (property === 'colors') {
-      return (newVal = ["all", ...new Set([].concat(...newVal))]);
-    } else {
-      return (newVal = ["all", ...new Set(newVal)]);
+      // return (newVal = ["all", ...new Set([].concat(...newVal))]);
+      newVal = newVal.flat();
     }
+    //  else {
+    return (newVal = ["all", ...new Set(newVal)]);
+    // }
   };
   // console.log("getUniqueData.. " + newVal)
 
