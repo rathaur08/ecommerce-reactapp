@@ -11,14 +11,20 @@ const FilterSection = () => {
       return curElem[property]
     });
 
-    return (newVal = ["all", ...new Set(newVal)]);
-    // console.log("getUniqueData.. " + newVal)
+    if (property === 'colors') {
+      return (newVal = ["all", ...new Set([].concat(...newVal))]);
+    } else {
+      return (newVal = ["all", ...new Set(newVal)]);
+    }
   };
+  // console.log("getUniqueData.. " + newVal)
 
 
   // we need Uniqe data 
   const categoryOnlyData = getUniqueData(all_products, "category");
   const companyOnlyData = getUniqueData(all_products, "company");
+  const colorOnlyData = getUniqueData(all_products, "colors");
+  console.log("colorOnlyData.. " + colorOnlyData)
 
   return (
     <>
@@ -43,7 +49,7 @@ const FilterSection = () => {
       <div className='filter-company'>
         <h3 className='mt-3'>Company</h3>
         <form action="#">
-          <select class="form-select" id="comany" onClick={updateFilterValue} aria-label="Default select example">
+          <select className="form-select" id="comany" onClick={updateFilterValue} aria-label="Default select example">
             {/* <option selected>Open this select option</option> */}
             {companyOnlyData.map((curElem, index) => {
               return (
