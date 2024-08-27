@@ -26,6 +26,8 @@ const FilterSection = () => {
   const categoryOnlyData = getUniqueData(all_products, "category");
   const companyOnlyData = getUniqueData(all_products, "company");
   const colorOnlyData = getUniqueData(all_products, "colors");
+  const priceOnlyData = getUniqueData(all_products, "colors");
+
   console.log("colorOnlyData.. " + colorOnlyData)
 
   return (
@@ -78,6 +80,9 @@ const FilterSection = () => {
           );
         })}
       </div>
+      <div className='filter-price'>
+        <h3 className='mt-3'>price</h3>
+        </div>
     </>
   )
 }
