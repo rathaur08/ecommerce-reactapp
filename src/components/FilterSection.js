@@ -3,7 +3,7 @@ import { useFilterContext } from './context/FilterContext';
 
 
 const FilterSection = () => {
-  const { all_products, filters: { text, category, company }, updateFilterValue } = useFilterContext();
+  const { all_products, filters: { text, category, company , color}, updateFilterValue } = useFilterContext();
 
   //  to get the UNIQUE data of each FiELDS
   const getUniqueData = (data, property) => {
@@ -30,7 +30,7 @@ const FilterSection = () => {
 
   return (
     <>
-      <div>
+      <div className='filter-search'>
         <form onSubmit={(e) => e.preventDefault()}>
           <input className='form-control' type='text' name='text'
             value={text} onChange={updateFilterValue} placeholder='Search'
@@ -61,6 +61,16 @@ const FilterSection = () => {
             })}
           </select>
         </form>
+      </div>
+      <div className='filter-colors'>
+        <h3 className='mt-3'>Colors</h3>
+        {colorOnlyData.map((curElem, index) => {
+          return (
+            <button key={index} style={{ backgroundColor: curElem}}
+            className='btnStyle' type='button'
+              name="color" value={curElem} onClick={updateFilterValue}>{color === curElem ? "" : null}</button>
+          );
+        })}
       </div>
     </>
   )
