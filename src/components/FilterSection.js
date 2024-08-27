@@ -1,9 +1,9 @@
 import React from 'react'
 import { useFilterContext } from './context/FilterContext';
-
+import { FaCheck } from "react-icons/fa";
 
 const FilterSection = () => {
-  const { all_products, filters: { text, category, company , color}, updateFilterValue } = useFilterContext();
+  const { all_products, filters: { text, category, company, color }, updateFilterValue } = useFilterContext();
 
   //  to get the UNIQUE data of each FiELDS
   const getUniqueData = (data, property) => {
@@ -65,10 +65,16 @@ const FilterSection = () => {
       <div className='filter-colors'>
         <h3 className='mt-3'>Colors</h3>
         {colorOnlyData.map((curElem, index) => {
+          if (curElem === "all") {
+            return (
+              <button key={index} type='button'
+                name="color" value={curElem} onClick={updateFilterValue}>all</button>
+            );
+          }
           return (
-            <button key={index} style={{ backgroundColor: curElem}}
-            className='btnStyle' type='button'
-              name="color" value={curElem} onClick={updateFilterValue}>{color === curElem ? "" : null}</button>
+            <button key={index} style={{ backgroundColor: curElem }}
+              className='btnStyle' type='button' name="color" value={curElem} onClick={updateFilterValue}>
+              {color === curElem ? <FaCheck style={{ color: 'white' }} /> : null}</button>
           );
         })}
       </div>
