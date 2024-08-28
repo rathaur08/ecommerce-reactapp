@@ -75,14 +75,9 @@ const SingleProduct = () => {
                   <span className="size" data-toggle="tooltip" title="xtra large">xl</span>
                 </h5>
                 <h5 className="colors">
-                  {stock > 0 && <AddTOCart product={singleProduct} />}
+                  {stock > 0 && <AddTOCart product={singleProduct} id={id} />}
                 </h5>
-                <div className="action">
-                  <NavLink to='/cart'>
-                    <button className="add-to-cart btn btn-default" type="button">add to cart</button>
-                  </NavLink>
-                  <button className="like btn btn-default ms-1" type="button"> ♡ </button>
-                </div>
+                
               </div>
             </div>
           </div>
