@@ -4,7 +4,7 @@ import { FaCheck } from "react-icons/fa";
 import FormatPrice from './Helper/FormatPrice';
 
 const FilterSection = () => {
-  const { all_products, filters: { text, category, company, color, maxPrice, price, minPrice }, updateFilterValue } = useFilterContext();
+  const { all_products, filters: { text, category, company, color, maxPrice, price, minPrice }, updateFilterValue, clearFilters } = useFilterContext();
 
   //  to get the UNIQUE data of each FiELDS
   const getUniqueData = (data, property) => {
@@ -86,6 +86,9 @@ const FilterSection = () => {
           <input type="range" name='price' min={minPrice} max={maxPrice} value={price} onChange={updateFilterValue} />
           {/* <label for="cowbell">Cowbell</label> */}
         </div>
+      </div>
+      <div className='filter-clear'>
+        <button button className='btn btn-danger' type='button' onClick={clearFilters}>Filter Clears</button>
       </div>
     </>
   )
