@@ -150,7 +150,7 @@ img {
   border-radius: 2px;
 }
 
-.btnStyle{
+.btnStyle {
   border-radius: 50%;
   height: 30px;
   width: 30px;
@@ -203,6 +203,10 @@ img {
 
 .tooltip-inner {
   padding: 1.3em;
+}
+
+.cartitem-img {
+  width: 150px;
 }
 
 @-webkit-keyframes opacity {

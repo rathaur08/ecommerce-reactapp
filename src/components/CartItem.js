@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import FormatPrice from './Helper/FormatPrice';
 import CartAmountToggle from './CartAmountToggle';
 import { FaTrash } from 'react-icons/fa';
+import { useCartContext } from './context/CartContext';
 
 
 const CartItem = ({ id, name, image, color, price, amount }) => {
+  const { removeItem } = useCartContext();
 
   const setDecrease = () => {
     // amount > 1 ? setAmount(amount - 1) : setAmount(1);
@@ -19,13 +21,13 @@ const CartItem = ({ id, name, image, color, price, amount }) => {
         <div className='d-flex'>
           <div className='image-container'>
             <figure className=''>
-              <img src={image} alt={id} />
+              <img className='cartitem-img' src={image} alt={id} />
             </figure>
           </div>
           <div className='text-container ms-2'>
             <p>{name}</p>
             <p className='d-flex'>color:
-            <div className='rounded-circle' style={{ backgroundColor: color, color: color }}> . </div>
+              <div className='rounded-circle' style={{ backgroundColor: color, color: color }}> . </div>
             </p>
           </div>
         </div>
@@ -47,7 +49,7 @@ const CartItem = ({ id, name, image, color, price, amount }) => {
 
       {/* Remove Cart */}
       <td>
-        <FaTrash className='remove_item' />
+        <FaTrash className='remove_item' onClick={() => removeItem(id)} />
       </td>
     </tr>
   )
