@@ -77,7 +77,6 @@ const SingleProduct = () => {
                 <h5 className="colors">
                   {stock > 0 && <AddTOCart product={singleProduct} id={id} />}
                 </h5>
-                
               </div>
             </div>
           </div>

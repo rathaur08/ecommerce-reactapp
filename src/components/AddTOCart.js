@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { useCartContext } from './context/CartContext';
 
 const AddTOCart = ({ product, id }) => {
-  const {addTOCart} = useCartContext();
+  const { addTOCart } = useCartContext();
 
   const { colors, stock } = product;
 
