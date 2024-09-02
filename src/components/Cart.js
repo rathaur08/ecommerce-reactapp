@@ -2,9 +2,10 @@ import React from 'react';
 import { useCartContext } from "./context/CartContext";
 import CartItem from './CartItem';
 import { NavLink } from 'react-router-dom';
+import FormatPrice from './Helper/FormatPrice';
 
 const Cart = () => {
-  const { cart, clearCart } = useCartContext();
+  const { cart, clearCart, total_price, shipping_fee } = useCartContext();
   console.log("cart", cart);
 
   if (cart.length === 0) {
@@ -40,6 +41,13 @@ const Cart = () => {
           <button type="button" class="btn btn-primary">Continue Shopping</button>
         </NavLink>
         <button type="button" class="btn btn-danger" onClick={clearCart}>Clear Cart</button>
+      </div>
+      <div className='d-flex justify-content-end mt-4'>
+        <div>
+          <p> SubTotal: <FormatPrice price={total_price} /> </p>
+          <p> Shipping fee: <FormatPrice  price={shipping_fee}/> </p>
+          <p>Order Total: <FormatPrice  price={shipping_fee + total_price }/> </p>
+        </div>
       </div>
     </div>
   )

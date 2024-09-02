@@ -54,7 +54,7 @@ const CartProvider = ({ children }) => {
   useEffect(() => {
     // get value total cart items
     dispatch({ type: "CART_TOTAL_ITEM" })
-
+    dispatch({ type: "CART_TOTAL_PRICE" })
     localStorage.setItem("ecomCart", JSON.stringify(state.cart))
   }, [state.cart]);
 
