@@ -6,7 +6,7 @@ const Header = () => {
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container">
-          <NavLink className="navbar-brand" to="/">RATHAUR08</NavLink>
+          <NavLink className="navbar-brand" to="/">JSG Products</NavLink>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -25,13 +25,15 @@ const Header = () => {
                 <NavLink className="nav-link" to="/contact-us">CONTACT</NavLink>
               </li>
             </ul>
-            <button type="button" className="btn btn-primary position-relative">
-              Cart
-              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                10
-                <span className="visually-hidden">unread messages</span>
-              </span>
-            </button>
+            <NavLink to="/cart">
+              <button type="button" className="btn btn-primary position-relative">
+                Cart
+                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  10
+                  <span className="visually-hidden">unread messages</span>
+                </span>
+              </button>
+            </NavLink>
           </div>
         </div>
       </nav>
