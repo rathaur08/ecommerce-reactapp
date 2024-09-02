@@ -1,10 +1,19 @@
 import React from 'react';
 import { useCartContext } from "./context/CartContext";
 import CartItem from './CartItem';
+import { NavLink } from 'react-router-dom';
 
 const Cart = () => {
-  const { cart } = useCartContext();
+  const { cart, clearCart } = useCartContext();
   console.log("cart", cart);
+
+  if (cart.length === 0) {
+    return (
+      <div>
+        <h1 className='text-center mt-5'>No Cart in item</h1>
+      </div>
+    )
+  }
 
   return (
     <div className='cart-container'>
@@ -26,6 +35,12 @@ const Cart = () => {
           }
         </tbody>
       </table>
+      <div className='d-flex justify-content-between'>
+        <NavLink to="/products">
+          <button type="button" class="btn btn-primary">Continue Shopping</button>
+        </NavLink>
+        <button type="button" class="btn btn-danger" onClick={clearCart}>Clear Cart</button>
+      </div>
     </div>
   )
 }

@@ -33,6 +33,11 @@ const CartProvider = ({ children }) => {
     dispatch({ type: "REMOVE_ITEM", payload: id })
   }
 
+  // clear cart  all data
+  const clearCart = () => {
+    dispatch({ type: "CLEAR_CART"})
+  }
+
   // to add cart item in local storage
   // get vs set
 
@@ -42,7 +47,7 @@ const CartProvider = ({ children }) => {
 
 
   return (
-    <CartContext.Provider value={{ ...state, addTOCart, removeItem }}>
+    <CartContext.Provider value={{ ...state, addTOCart, removeItem, clearCart }}>
       {children}
     </CartContext.Provider>
   )

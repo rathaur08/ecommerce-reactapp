@@ -33,6 +33,14 @@ const cartReducer = (state, action) => {
     };
   }
 
+  // CLEAR CART Data from localStorage
+  if (action.type === "CLEAR_CART") {
+    return {
+      ...state,
+      cart: [],
+    }
+  }
+
   return state;
 }
 
