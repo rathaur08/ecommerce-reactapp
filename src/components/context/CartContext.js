@@ -17,7 +17,7 @@ const initialState = {
   // cart: [],
   cart: getLocalCartData(),
   total_item: "",
-  total_amount: "",
+  total_price: "",
   shipping_fee: 50000,
 }
 
@@ -52,6 +52,9 @@ const CartProvider = ({ children }) => {
   // get vs set
 
   useEffect(() => {
+    // get value total cart items
+    dispatch({ type: "CART_TOTAL_ITEM" })
+
     localStorage.setItem("ecomCart", JSON.stringify(state.cart))
   }, [state.cart]);
 

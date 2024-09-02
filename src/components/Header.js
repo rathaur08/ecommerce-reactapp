@@ -1,7 +1,10 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { useCartContext } from "./context/CartContext";
 
 const Header = () => {
+  const { total_item } = useCartContext();
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -29,7 +32,7 @@ const Header = () => {
               <button type="button" className="btn btn-primary position-relative">
                 Cart
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                  10
+                  {total_item}
                   <span className="visually-hidden">unread messages</span>
                 </span>
               </button>
