@@ -3,8 +3,12 @@ import { useCartContext } from "./context/CartContext";
 import CartItem from './CartItem';
 import { NavLink } from 'react-router-dom';
 import FormatPrice from './Helper/FormatPrice';
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Cart = () => {
+  // USE Auth0 Login Function
+  const { isAuthenticated, user } = useAuth0();
+
   const { cart, clearCart, total_price, shipping_fee } = useCartContext();
   console.log("cart", cart);
 
@@ -17,7 +21,13 @@ const Cart = () => {
   }
 
   return (
-    <div className='cart-container'>
+    <div className='cart-container mt-3'>
+      {isAuthenticated && (
+        <div className='d-flex'>
+          <img className='' width={50} src={user.picture} alt={user.name} />
+          <h2 className='ms-3'>{user.name}</h2>
+        </div>
+      )}
       <table class="table table-striped table-hover">
         <thead class="thead-dark">
           <tr>

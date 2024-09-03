@@ -8,7 +8,7 @@ const Header = () => {
   const { total_item } = useCartContext();
 
   // USE Auth0 Login Function
-  const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
+  const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -32,6 +32,13 @@ const Header = () => {
                 <NavLink className="nav-link" to="/contact-us">CONTACT</NavLink>
               </li>
             </ul>
+            {isAuthenticated && (
+              <div>
+                {/* <img src={user.picture} alt={user.name} /> */}
+                <h6>{user.name}</h6>
+                {/* <p>{user.email}</p> */}
+              </div>
+            )}
             {isAuthenticated ? (
               <button className="btn btn-primary m-1" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
                 Log Out </button>
