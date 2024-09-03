@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './AllStyle.css'
-import { NavLink, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useProductContext } from './context/ProductContext';
 import FormatPrice from './Helper/FormatPrice';
 import Star from './Star';
@@ -13,7 +13,7 @@ const SingleProduct = () => {
   const API = "https://api.pujakaitem.com/api/products";
 
   const { getSingleProduct, isSingleLoading, singleProduct } = useProductContext();
-  console.log(singleProduct);
+  // console.log("singleProduct", singleProduct);
 
   const { id } = useParams();
 
@@ -22,7 +22,7 @@ const SingleProduct = () => {
 
   useEffect(() => {
     getSingleProduct(`${API}/${id}`)
-  }, []);
+  }, [id]);
 
   if (isSingleLoading) {
     return <div>........isLoading</div>
@@ -37,7 +37,7 @@ const SingleProduct = () => {
               <div className="preview col-md-6">
                 <div className="preview-pic tab-content">
                   <div className="tab-pane active" id="pic-1">
-                    <img src="https://d3tfanr7troppj.cloudfront.net/static_files/images/000/005/523/original/VT-MUM.png?1705149628" height={450} />
+                    <img src="https://d3tfanr7troppj.cloudfront.net/static_files/images/000/005/523/original/VT-MUM.png?1705149628" height={450} alt='imagess' />
                     {/* <img src={mainImage.url} alt={mainImage.filename} /> */}
                   </div></div>
                 <ul className="preview-thumbnail nav nav-tabs">

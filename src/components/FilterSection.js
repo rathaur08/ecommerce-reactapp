@@ -4,7 +4,7 @@ import { FaCheck } from "react-icons/fa";
 import FormatPrice from './Helper/FormatPrice';
 
 const FilterSection = () => {
-  const { all_products, filters: { text, category, company, color, maxPrice, price, minPrice }, updateFilterValue, clearFilters } = useFilterContext();
+  const { all_products, filters: { text, color, maxPrice, price, minPrice }, updateFilterValue, clearFilters } = useFilterContext();
 
   //  to get the UNIQUE data of each FiELDS
   const getUniqueData = (data, property) => {
