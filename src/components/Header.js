@@ -1,10 +1,14 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { useCartContext } from "./context/CartContext";
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 const Header = () => {
   const { total_item } = useCartContext();
 
+  // USE Auth0 Login Function
+  const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -28,6 +32,13 @@ const Header = () => {
                 <NavLink className="nav-link" to="/contact-us">CONTACT</NavLink>
               </li>
             </ul>
+            {isAuthenticated ? (
+              <button className="btn btn-primary m-1" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+                Log Out </button>
+            ) : (
+              <button className="btn btn-primary m-1" onClick={() => loginWithRedirect()}>Log In</button>
+            )}
+
             <NavLink to="/cart">
               <button type="button" className="btn btn-primary position-relative">
                 Cart
